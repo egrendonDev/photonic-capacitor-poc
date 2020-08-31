@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Camera, CameraResultType, CameraSource, Plugins } from '@capacitor/core';
 import { TabsPage } from '../pages/tabs/tabs';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -11,7 +10,6 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class MyApp {
   rootPage:any = TabsPage;
-  photo: SafeResourceUrl;
 
 
   constructor(platform: Platform, statusBar: StatusBar,
@@ -23,20 +21,6 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-  }
-
-
-
-
-  async takePicture() {
-    const image = await Plugins.Camera.getPhoto({
-      quality: 100,
-      allowEditing: false,
-      resultType: CameraResultType.DataUrl,
-      source: CameraSource.Camera
-    });
-
-    this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
   }
 
 }
