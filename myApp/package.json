@@ -34,7 +34,7 @@
   "devDependencies": {
     "@capacitor/cli": "2.4.0",
     "@ionic/app-scripts": "3.2.4",
-    "typescript": "2.6.2"
+    "typescript": "2.9.2"
   },
   "description": "An Ionic project"
 }
